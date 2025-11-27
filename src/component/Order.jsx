@@ -33,10 +33,111 @@ const InspirationCategories = [
   },
 ];
 
+const Restaurants = [
+  {
+    id: 1,
+    title: 'Three Anandhaas',
+    rating: 4.3,
+    price: '₹250',
+    time: '33 min',
+    cuisines: 'South Indian, North Indian,...',
+    offer: '₹100 OFF',
+    imageUrl: 'https://via.placeholder.com/300x200?text=Three+Anandhaas',
+    promoted: true,
+  },
+  {
+    id: 2,
+    title: 'SS Hyderabad Biryani-Coimba',
+    rating: 4.4,
+    price: '₹200',
+    time: '35 min',
+    cuisines: 'Biryani, Chinese, Mughlai,...',
+    offer: '',
+    imageUrl: 'https://via.placeholder.com/300x200?text=SS+Hyderabad+Biryani',
+  },
+  {
+    id: 3,
+    title: 'Woow Biryani',
+    rating: 4.0,
+    price: '₹100',
+    time: '26 min',
+    cuisines: 'South Indian, Biryani',
+    offer: '₹100 OFF',
+    imageUrl: 'https://via.placeholder.com/300x200?text=Woow+Biryani',
+    promoted: true,
+  },
+  {
+    id: 4,
+    title: 'KFC',
+    rating: 4.2,
+    price: '₹300',
+    time: '20 min',
+    cuisines: 'Fast Food, American, Chicken',
+    offer: '₹50 OFF',
+    imageUrl: 'https://via.placeholder.com/300x200?text=KFC',
+    promoted: false,
+  },
+  {
+    id: 5,
+    title: 'Dominos',
+    rating: 4.1,
+    price: '₹400',
+    time: '25 min',
+    cuisines: 'Pizza, Italian, Fast Food',
+    offer: '',
+    imageUrl: 'https://via.placeholder.com/300x200?text=Dominos',
+    promoted: true,
+  },
+  {
+    id: 6,
+    title: 'Saravana Bhavan',
+    rating: 4.5,
+    price: '₹150',
+    time: '30 min',
+    cuisines: 'South Indian, Vegetarian',
+    offer: '₹20 OFF',
+    imageUrl: 'https://via.placeholder.com/300x200?text=Saravana+Bhavan',
+    promoted: false,
+  },
+  {
+    id: 7,
+    title: 'Boomerang Ice Creams',
+    rating: 4.3,
+    price: '₹200',
+    time: '15 min',
+    cuisines: 'Desserts, Ice Cream',
+    offer: '',
+    imageUrl: 'https://via.placeholder.com/300x200?text=Boomerang+Ice+Creams',
+    promoted: true,
+  },
+  {
+    id: 8,
+    title: 'SS Hyderabad Biryani',
+    rating: 4.4,
+    price: '₹180',
+    time: '28 min',
+    cuisines: 'Biryani, Mughlai',
+    offer: '₹30 OFF',
+    imageUrl: 'https://via.placeholder.com/300x200?text=SS+Hyderabad+Biryani+2',
+    promoted: false,
+  },
+  {
+    id: 9,
+    title: 'Geetham Canteen',
+    rating: 4.0,
+    price: '₹100',
+    time: '10 min',
+    cuisines: 'South Indian, Snacks',
+    offer: '',
+    imageUrl: 'https://via.placeholder.com/300x200?text=Geetham+Canteen',
+    promoted: false,
+  },
+];
+
 export default function Order() {
   return (
     <div style={styles.container}>
-      {}
+      {/* Inspiration Section */}
       <section style={styles.inspirationSection}>
         <h2 style={styles.sectionTitle}>Inspiration for your first order</h2>
         <div style={styles.categoryGrid}>
@@ -52,11 +153,40 @@ export default function Order() {
           ))}
         </div>
       </section>
+
+      {/* Restaurants Section */}
+      <section style={styles.restaurantsSection}>
+        <h2 style={styles.sectionTitle}>Food Delivery Restaurants in Coimbatore</h2>
+        <div style={styles.restaurantGrid}>
+          {Restaurants.map((restaurant) => (
+            <div key={restaurant.id} style={styles.restaurantCard}>
+              {restaurant.promoted && <div style={styles.promotedBadge}>Promoted</div>}
+              <img
+                src={restaurant.imageUrl}
+                alt={restaurant.title}
+                style={styles.restaurantImage}
+              />
+              {restaurant.offer && (
+                <div style={styles.offerBadge}>{restaurant.offer}</div>
+              )}
+              <div style={styles.restaurantInfo}>
+                <h3 style={styles.restaurantTitle}>{restaurant.title}</h3>
+                <div style={styles.rating}>{restaurant.rating}★</div>
+                <p style={styles.cuisines}>{restaurant.cuisines}</p>
+                <div style={styles.details}>
+                  <span style={styles.price}>{restaurant.price} for one</span>
+                  <span style={styles.time}>{restaurant.time}</span>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
     </div>
   );
 }
 
-
+// Inline Styles
 const styles = {
   container: {
     fontFamily: 'Arial, sans-serif',
@@ -66,6 +196,9 @@ const styles = {
     padding: '20px',
   },
   inspirationSection: {
+    padding: '20px 0',
+  },
+  restaurantsSection: {
     padding: '20px 0',
   },
   sectionTitle: {
@@ -96,5 +229,78 @@ const styles = {
     fontSize: '14px',
     color: '#333',
     fontWeight: '500',
+  },
+  restaurantGrid: {
+    display: 'flex',
+    gap: '20px',
+    overflowX: 'auto',
+    paddingBottom: '10px',
+  },
+  restaurantCard: {
+    position: 'relative',
+    minWidth: '300px',
+    backgroundColor: '#fff',
+    borderRadius: '12px',
+    boxShadow: '0 2px 8px rgba(0,0,0,0.1)',
+    overflow: 'hidden',
+    cursor: 'pointer',
+  },
+  promotedBadge: {
+    position: 'absolute',
+    top: '10px',
+    left: '10px',
+    backgroundColor: '#ff6b35',
+    color: '#fff',
+    padding: '4px 8px',
+    fontSize: '12px',
+    borderRadius: '4px',
+    zIndex: 1,
+  },
+  restaurantImage: {
+    width: '100%',
+    height: '200px',
+    objectFit: 'cover',
+  },
+  offerBadge: {
+    position: 'absolute',
+    top: '10px',
+    right: '10px',
+    backgroundColor: '#00c851',
+    color: '#fff',
+    padding: '4px 8px',
+    fontSize: '12px',
+    borderRadius: '4px',
+    zIndex: 1,
+  },
+  restaurantInfo: {
+    padding: '15px',
+  },
+  restaurantTitle: {
+    margin: '0 0 5px 0',
+    fontSize: '16px',
+    fontWeight: '600',
+    color: '#333',
+  },
+  rating: {
+    color: '#ffa500',
+    fontWeight: 'bold',
+    marginBottom: '5px',
+  },
+  cuisines: {
+    margin: '0 0 10px 0',
+    fontSize: '14px',
+    color: '#666',
+  },
+  details: {
+    display: 'flex',
+    justifyContent: 'space-between',
+    fontSize: '14px',
+    color: '#333',
+  },
+  price: {
+    fontWeight: '500',
+  },
+  time: {
+    color: '#666',
   },
 };
