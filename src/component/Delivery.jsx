@@ -187,7 +187,7 @@ const styles = {
   },
   title: {
     textAlign: 'center',
-    color: '#e23744', // Zomato red
+    color: '#e23744', 
     marginBottom: '30px',
   },
   section: {
