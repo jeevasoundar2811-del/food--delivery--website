@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-// import{faCartShopping}from '@fortawesome/react-fontawesome'
+
 
 export default function Navbar() {
   const [open,setOpen]=useState(false)
@@ -20,7 +20,7 @@ export default function Navbar() {
         <li>Menu</li>
         <li>Offers</li>
         <li>Contact</li>
-        {/* <FontAwesomeIcon icon={faCartShopping} /> */}
+       
       </ul>
 
 
