@@ -115,6 +115,8 @@ export default function HomePage() {
               </button>
 
               {/* changes */}
+
+              <h1>hello</h1>
             </div>
           </div>
         )}
