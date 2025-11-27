@@ -114,9 +114,7 @@ export default function HomePage() {
                 Close
               </button>
 
-              {/* changes */}
-
-              <h1>hello</h1>
+              
             </div>
           </div>
         )}
