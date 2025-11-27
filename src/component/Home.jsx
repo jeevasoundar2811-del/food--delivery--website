@@ -1,14 +1,50 @@
-import React from "react";
+import React, { useState } from "react";
 import Navbar from "./Navbar";
 
-
 export default function HomePage() {
+  const [cart, setCart] = useState([]);
+  const [viewItem, setViewItem] = useState(null); // For popup
+
+  const handleAddToCart = (item) => {
+    setCart([...cart, item]);
+    console.log("Added to Cart:", item);
+  };
+
+  // Food categories
+  const categories = [
+    {
+      name: "Pizza",
+      img: "https://images.unsplash.com/photo-1604382354936-07c5d9983bd3?w=600&auto=format&fit=crop&q=60",
+      price: "$50.00",
+      description: "A classic cheesy pizza topped with spicy herbs."
+    },
+    {
+      name: "Chicken Biriyani",
+      img: "https://media.istockphoto.com/id/1345624336/photo/chicken-biriyani.webp?a=1&b=1&s=612x612&w=0&k=20&c=a8j_p9BkWtsSX7WkcqeetigH8PYWXGayIGto9GiehNY=",
+      price: "$90.00",
+      description: "Authentic biriyani cooked with tender chicken and spices."
+    },
+    {
+      name: "Desserts",
+      img: "https://images.unsplash.com/photo-1587314168485-3236d6710814?w=600&auto=format&fit=crop&q=60",
+      price: "$30.00",
+      description: "Sweet and delightful desserts to end your meal."
+    },
+    {
+      name: "Drinks",
+      img: "https://media.istockphoto.com/id/453010753/photo/three-fruit-juice-glasses-surrounded-by-colorful-fruits.webp?a=1&b=1&s=612x612&w=0&k=20&c=3BXu9Y4s7rfWqScGhXqpcqaCJ1kCvq8nc8SB8IKcHxA=",
+      price: "$15.00",
+      description: "Refreshing fruit drinks to quench your thirst."
+    },
+  ];
+
   return (
     <>
-      
+    
 
       <div className="home-container">
-      
+
+        {/* Hero Section */}
         <section
           className="hero"
           style={{
@@ -27,66 +63,51 @@ export default function HomePage() {
           </div>
         </section>
 
-     
+        {/* Category Section */}
         <section className="category-section">
           <h2 className="section-title">Popular Categories</h2>
 
           <div className="category-grid">
-            {[
-              {
-                name: "Pizza",
-                img: "https://images.unsplash.com/photo-1604382354936-07c5d9983bd3?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8cGl6emF8ZW58MHx8MHx8fDA%3D",
-                price:"$50.00",
-              
-
-              },
-              {
-                name: "Chicken Biriyani",
-                img: "https://media.istockphoto.com/id/1345624336/photo/chicken-biriyani.webp?a=1&b=1&s=612x612&w=0&k=20&c=a8j_p9BkWtsSX7WkcqeetigH8PYWXGayIGto9GiehNY=",
-                price:"$90.00",
-                description:"A gourmet burger crafted with tender patties, fresh greens, and rich flavors in every layer.",
-                
-              },
-              {
-                name: "Desserts",
-                img: "https://images.unsplash.com/photo-1587314168485-3236d6710814?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8RGVzc2VydHN8ZW58MHx8MHx8fDA%3D",
-              },
-              {
-                name: "Drinks",
-                img: "https://media.istockphoto.com/id/453010753/photo/three-fruit-juice-glasses-surrounded-by-colorful-fruits.webp?a=1&b=1&s=612x612&w=0&k=20&c=3BXu9Y4s7rfWqScGhXqpcqaCJ1kCvq8nc8SB8IKcHxA=",
-              },
-            ].map((cat, index) => (
+            {categories.map((cat, index) => (
               <div key={index} className="category-card">
                 <img src={cat.img} alt={cat.name} />
-                <p>{cat.name}</p>
-                <p>{cat.price}</p>
-                <p>{cat.description}</p>
+                <p className="food-name">{cat.name}</p>
+                <p className="food-price">{cat.price}</p>
+                <p className="food-desc">{cat.description}</p>
+
+                {/* Add to Cart Button */}
+                <button className="add-btn" onClick={() => handleAddToCart(cat)}>
+                  Add to Cart
+                </button>
+
+                {/* View More Button */}
+                <button className="view-btn" onClick={() => setViewItem(cat)}>
+                  View More
+                </button>
               </div>
             ))}
           </div>
         </section>
 
-        {/* Featured Section */}
-        <section className="featured-section">
-          <h2 className="section-title">Today's Special</h2>
+        {/* View More Popup */}
+        {viewItem && (
+          <div className="popup-overlay" onClick={() => setViewItem(null)}>
+            <div className="popup-card" onClick={(e) => e.stopPropagation()}>
+              <img src={viewItem.img} alt={viewItem.name} className="popup-img" />
+              <h2>{viewItem.name}</h2>
+              <p className="popup-price">{viewItem.price}</p>
+              <p className="popup-desc">{viewItem.description}</p>
 
-          <div className="featured-grid">
-            <img
-              src="https://media.istockphoto.com/id/2165643636/photo/crispy-fried-chicken-with-spicy-french-fries-and-drink.webp?a=1&b=1&s=612x612&w=0&k=20&c=q-aJHZ3HLakJTQbKMsR-r9Z_B2Ou3woUe5WKbHGTjPg="
-              alt="Special Dish"
-              className="featured-img"
-            />
+              <button className="add-btn" onClick={() => handleAddToCart(viewItem)}>
+                Add to Cart
+              </button>
 
-            <div>
-              <h3 className="featured-title">Hot & Spicy Chicken Wings</h3>
-              <p className="featured-text">
-                Crispy, spicy, and full of flavor. Our signature chicken wings
-                are prepared fresh and delivered hot!
-              </p>
-              <button className="featured-btn">Order Now</button>
+              <button className="close-btn" onClick={() => setViewItem(null)}>
+                Close
+              </button>
             </div>
           </div>
-        </section>
+        )}
       </div>
     </>
   );

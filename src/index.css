@@ -128,99 +128,186 @@
   background: #c62828;
 }
 
-/* Categories */
+
 .category-section {
-  padding: 40px;
+  padding: 40px 20px;
+  text-align: center;
 }
 
 .section-title {
   font-size: 32px;
   font-weight: bold;
-  margin-bottom: 20px;
+  margin-bottom: 25px;
 }
 
+/* Category Grid */
 .category-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 25px;
+  padding: 10px;
 }
 
+/* Category Card */
 .category-card {
-  background: white;
-  border-radius: 18px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-  overflow: hidden;
-  transition: 0.3s;
-  cursor: pointer;
+  background: #ffffff;
+  border-radius: 15px;
+  padding: 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: 0.25s ease;
 }
+
 .category-card:hover {
-  transform: scale(1.05);
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
 }
+
 .category-card img {
   width: 100%;
-  height: 150px;
+  height: 160px;
+  border-radius: 12px;
   object-fit: cover;
 }
-.category-card p {
-  text-align: center;
-  padding: 10px;
-  font-size: 18px;
+
+/* Food Name */
+.food-name {
+  font-size: 20px;
   font-weight: 600;
+  margin: 10px 0 5px;
 }
 
-/* Featured Section */
-.featured-section {
-  padding: 40px;
-  margin-bottom: 40px;
+/* Food Price */
+.food-price {
+  color: #e63946;
+  font-weight: 700;
+  margin-bottom: 5px;
 }
 
-.featured-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 40px;
-  align-items: center;
-}
-
-.featured-img {
-  width: 100%;
-  border-radius: 25px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-}
-
-.featured-title {
-  font-size: 40px;
-  font-weight: bold;
+/* Food Description */
+.food-desc {
+  font-size: 14px;
+  color: gray;
   margin-bottom: 15px;
 }
 
-.featured-text {
-  color: #555;
-  font-size: 18px;
-  margin-bottom: 20px;
-}
-
-.featured-btn {
-  padding: 12px 25px;
-  background: #e53935;
-  border-radius: 30px;
-  font-size: 20px;
-  font-weight: 600;
+/* Buttons */
+.add-btn,
+.view-btn {
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0;
+  border-radius: 8px;
   border: none;
-  color: white;
   cursor: pointer;
-  transition: 0.3s;
-}
-.featured-btn:hover {
-  background: #c62828;
+  font-size: 16px;
+  transition: 0.2s;
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-  .hero-title {
-    font-size: 40px;
+.add-btn {
+  background: #06d6a0;
+  color: white;
+}
+
+.add-btn:hover {
+  background: #05b487;
+}
+
+.view-btn {
+  background: #118ab2;
+  color: white;
+}
+
+.view-btn:hover {
+  background: #0e6781;
+}
+
+/* Popup Overlay */
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+/* Popup Card */
+.popup-card {
+  background: white;
+  width: 90%;
+  max-width: 420px;
+  padding: 25px;
+  border-radius: 15px;
+  text-align: center;
+  position: relative;
+  animation: popupScale 0.3s ease;
+}
+
+@keyframes popupScale {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.popup-img {
+  width: 100%;
+  height: 220px;
+  border-radius: 12px;
+  object-fit: cover;
+  margin-bottom: 15px;
+}
+
+.popup-price {
+  font-size: 22px;
+  font-weight: bold;
+  color: #e63946;
+  margin-top: 8px;
+}
+
+.popup-desc {
+  font-size: 15px;
+  color: gray;
+  margin: 10px 0 20px;
+}
+
+/* Close Button */
+.close-btn {
+  background: #e63946;
+  color: #fff;
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 10px;
+}
+
+.close-btn:hover {
+  background: #b82834;
+}
+
+/* Mobile Responsive */
+@media (max-width: 480px) {
+  .section-title {
+    font-size: 26px;
   }
 
-  .featured-grid {
-    grid-template-columns: 1fr;
+  .category-card img {
+    height: 140px;
+  }
+
+  .popup-card {
+    max-width: 350px;
   }
 }
