@@ -1,0 +1,310 @@
+/* ----------------------------------
+   GLOBAL CONTAINER
+---------------------------------- */
+.home-container {
+  width: 100%;
+  overflow-x: hidden;
+  margin-top: 70px; /* Prevent navbar overlap */
+}
+
+.home-container.dark {
+  background: #111;
+  color: #fff;
+}
+
+/* ----------------------------------
+   HERO SECTION
+---------------------------------- */
+.hero {
+  height: 85vh;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+  padding: 20px;
+  position: relative;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 600px;
+  background: rgba(0,0,0,0.45);
+  padding: 25px 35px;
+  border-radius: 15px;
+}
+
+.hero-title {
+  font-size: 42px;
+  font-weight: bold;
+}
+
+.hero-sub {
+  margin-top: 10px;
+  font-size: 18px;
+}
+
+.hero-btn {
+  margin-top: 20px;
+  padding: 12px 28px;
+  background: #ff4d4d;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 18px;
+  color: white;
+  transition: 0.3s;
+}
+
+.hero-btn:hover {
+  background: #e63939;
+}
+
+/* ----------------------------------
+   CATEGORIES
+---------------------------------- */
+.category-section {
+  padding: 50px 20px;
+  text-align: center;
+}
+
+.section-title {
+  font-size: 32px;
+  margin-bottom: 25px;
+}
+
+.category-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+}
+
+.category-card {
+  background: #fff;
+  padding: 15px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transition: 0.3s;
+}
+
+.home-container.dark .category-card {
+  background: #222;
+  color: white;
+}
+
+.category-card:hover {
+  transform: scale(1.05);
+}
+
+.category-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.food-name {
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.food-desc {
+  color: #555;
+}
+
+.home-container.dark .food-desc {
+  color: #ccc;
+}
+
+.view-btn {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  background: #ff4d4d;
+  color: white;
+  transition: 0.3s;
+}
+
+.view-btn:hover {
+  background: #a20f0f;
+}
+
+/* ----------------------------------
+   TRENDING FOODS
+---------------------------------- */
+.trending-section {
+  padding: 50px 20px;
+  text-align: center;
+}
+
+.trend-grid {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  flex-wrap: wrap;
+}
+
+.trend-card {
+  background: white;
+  width: 250px;
+  padding: 15px;
+  border-radius: 15px;
+  box-shadow: 0px 4px 12px rgba(0,0,0,0.1);
+  transition: 0.3s;
+}
+
+.home-container.dark .trend-card {
+  background: #222;
+  color: white;
+}
+
+.trend-card:hover {
+  transform: translateY(-5px);
+}
+
+.trend-card img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.star-rating {
+  color: gold;
+  margin: 10px 0;
+}
+
+/* ----------------------------------
+   TESTIMONIALS
+---------------------------------- */
+.testimonial-section {
+  padding: 50px 20px;
+  text-align: center;
+}
+
+.testimonial-grid {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  flex-wrap: wrap;
+}
+
+.testimonial-card {
+  background: white;
+  width: 280px;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transition: 0.3s;
+}
+
+.home-container.dark .testimonial-card {
+  background: #222;
+  color: white;
+}
+
+.testimonial-card:hover {
+  transform: scale(1.05);
+}
+
+.test-img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+}
+
+/* ----------------------------------
+   POPUP VIEW
+---------------------------------- */
+.popup-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+}
+
+.popup-card {
+  background: white;
+  padding: 20px;
+  width: 350px;
+  border-radius: 15px;
+  text-align: center;
+}
+
+.popup-img {
+  width: 100%;
+  border-radius: 12px;
+}
+
+.close-btn {
+  background: #222;
+  color: white;
+  padding: 10px;
+  width: 100%;
+  margin-top: 10px;
+  border-radius: 20px;
+}
+
+/* ----------------------------------
+   MOBILE RESPONSIVE FIXES
+---------------------------------- */
+@media (max-width: 768px) {
+  
+  /* Fix overlapping navbar issue */
+  .home-container {
+    margin-top: 90px;
+  }
+
+  .hero {
+    height: 60vh;
+    padding: 10px;
+  }
+
+  .hero-content {
+    padding: 15px;
+    width: 90%;
+  }
+
+  .hero-title {
+    font-size: 26px;
+  }
+
+  .hero-sub {
+    font-size: 15px;
+  }
+
+  .trend-grid,
+  .testimonial-grid {
+    gap: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    height: 55vh;
+  }
+  .hero-title {
+    font-size: 22px;
+  }
+  .hero-sub {
+    font-size: 14px;
+  }
+}
