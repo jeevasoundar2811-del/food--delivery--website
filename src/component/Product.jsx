@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-export default function Restaurant() {
+export default function Product() {
   const restaurants = [
     {
       id: 1,
@@ -70,7 +70,9 @@ export default function Restaurant() {
               <span style={styles.time}>{res.time}</span>
             </div>
 
-            <Link to="/Menu"><button style={styles.btn}>View Menu</button> </Link>
+            <Link to="/Menu">
+              <button style={styles.btn}>View Menu</button>{" "}
+            </Link>
           </div>
         ))}
       </div>
