@@ -8,7 +8,7 @@ export default function About() {
         <h1>
           About <span>FoodExpress</span>
         </h1>
-        <p>Fast • Fresh • Delivered with Love ❤️</p>
+        <p>Fast • Fresh •Delivered with Love❤️</p>
       </div>
 
       <div className="about-content">
