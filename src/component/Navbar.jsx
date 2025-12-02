@@ -18,7 +18,7 @@ export default function Navbar() {
         <li><Link to="/About">About</Link></li>
         <li><Link to="/product">Products</Link></li>
         <li><Link to="/order">Order</Link></li>
-        <li><Link to="/Delivery">Delivery</Link></li>
+        <li><Link to="/delivery">Delivery</Link></li>
         <li><Link to="/contact">Contact</Link></li>
       <FaShoppingCart size={25} />
       </ul>

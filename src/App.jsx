@@ -7,6 +7,8 @@ import Order from "./component/Order";
 import Product from "./component/Product";
 import Menu from "./component/Menu";
 import Footer from "./component/Footer";
+import Contact from "./component/Contact";
+import About from "./component/About ";
 
 function App() {
   return (
@@ -16,11 +18,12 @@ function App() {
 
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About/>} />
           <Route path="/Menu" element={<Menu />} />
-          <Route path="/" element={<Order />} />
-          <Route path="/" element={<Delivery />} />
+          <Route path="/order" element={<Order />} />
+          <Route path="/delivery" element={<Delivery />} />
           <Route path="/Product" element={<Product />} />
-          {/* <Route path="/" element={<Home />} /> */}
+          <Route path="/contact" element={<Contact />} />
         </Routes>
         <Footer />
       </BrowserRouter>
