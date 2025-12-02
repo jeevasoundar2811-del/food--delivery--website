@@ -22,7 +22,8 @@ function App() {
           <Route path="/Menu" element={<Menu />} />
           <Route path="/order" element={<Order />} />
           <Route path="/delivery" element={<Delivery />} />
-          <Route path="/Product" element={<Product />} />
+          <Route path="/product/:name" element={<Product />} />
+          <Route path="/product" element={<Product />} />
           <Route path="/contact" element={<Contact />} />
         </Routes>
         <Footer />
