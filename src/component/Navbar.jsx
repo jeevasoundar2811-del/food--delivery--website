@@ -23,7 +23,7 @@ export default function Navbar({cart}) {
      <li>
   <Link to="/cart" className="cart-icon">
     <FaShoppingCart size={25} />
-    <span className="cart-count">{cart.length}</span>
+    {/* <span className="cart-count">{cart.length}</span> */}
   </Link>
 </li>
       </ul>
