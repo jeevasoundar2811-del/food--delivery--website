@@ -8,7 +8,8 @@ import Product from "./component/Product";
 import Menu from "./component/Menu";
 import Footer from "./component/Footer";
 import Contact from "./component/Contact";
-import About from "./component/About ";
+import About from "./component/About "; 
+// import Cart from "./component/Cart";
 
 function App() {
   return (
