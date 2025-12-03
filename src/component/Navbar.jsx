@@ -16,9 +16,8 @@ export default function Navbar({cart}) {
       <ul className={`nav-links ${open ? "open" : ""}`}>
         <li><Link to="/">Home</Link></li>
         <li><Link to="/About">About</Link></li>
-        <li><Link to="/product">Product</Link></li>
-        <li><Link to="/order">Order</Link></li>
-        <li><Link to="/delivery">Delivery</Link></li>
+      
+        
         <li><Link to="/contact">Contact</Link></li>
      <li>
   <Link to="/cart" className="cart-icon">
